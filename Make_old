@@ -1,0 +1,14 @@
+CC=gcc
+CFLAGS=-g -lgmp
+TARGET=a.out
+OBJS=main.o
+
+$(TARGET) : $(OBJS) 
+	$(CC) -o $@ $(OBJS) $(CFLAGS)
+	rm *.o
+
+main.o : main.c
+	$(CC) $(CFLAGS) -c main.c 
+
+clean:
+	rm *.o *.out *.gch
